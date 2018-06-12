@@ -18,7 +18,7 @@ You are free to fork this repository to get started.
 
 We would like you to build a client-side web application to display, sort, and modify a list of candidates for a job opening. A backend implementation, along with instructions for running it, is provided in the [`api/`](https://github.com/HireAnEsquire/frontend-dev-assessment/tree/master/api) directory.
 
-You are free to use any tools or projects at your disposal. This project contains a boilerplate app built with [create-react-app](https://github.com/facebook/create-react-app) that you can use to get started with if you choose to do so. You'll find this in the [`client/`](https://github.com/HireAnEsquire/frontend-dev-assessment/tree/master/client) directory.
+You are free to use any tools or projects at your disposal. This project contains a boilerplate app built with [create-react-app](https://github.com/facebook/create-react-app) that you can use to get started with if you choose to do so. You'll find this in the [`client/`](https://github.com/HireAnEsquire/frontend-dev-assessment/tree/master/client) directory. However, you are free to implement your application using any Javascript library/framework of your choosing.
 
 ## Prerequisites
 
