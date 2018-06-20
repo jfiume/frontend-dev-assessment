@@ -1,30 +1,50 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
-  fetchCandidates
+  fetchCandidates,
+  filterByReviewed
 } from '../actions/candidate_actions';
 import CandidateDetail from './candidate_detail_container';
 
 class CandidateIndex extends Component {
   constructor(props) {
     super(props);
+    this.filterByReviewed = this.filterByReviewed.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchCandidates();
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.filterByReviewedObj !== this.props.filterByReviewedObj) {
+      this.props.fetchCandidates();
+    }
+  }
+
+  filterByReviewed() {
+    this.props.filterByReviewed();
+  }
+
   render() {
     const { loading } = this.props.loadingStatus;
     if (!loading && Object.values(this.props.candidates).length > 0) {
-      const { candidates } = this.props;
-      // const allCandidates = [];
-      // for (let i = 0; i < Object.values(candidates).length; i++) {
-      //   allCandidates.push(Object.values(candidates[i]));
-      // }
+      const { filterByReviewedObj } = this.props.filterByReviewedObj;
+      if (this.props.filterByReviewedObj.filterByReviewed) {
         return (
-          <div>{Object.values(candidates).map(candidate => <CandidateDetail key={candidate.id} candidate={candidate} />)}</div>
+          <div>
+            <button onClick={this.filterByReviewed}>filter by reviewed</button>
+            <section>{this.props.reviewed.map(candidate => <CandidateDetail key={candidate.id} candidate={candidate} />)}</section>
+          </div>
         )
+      } else {
+        return (
+          <div>
+            <button onClick={this.filterByReviewed}>filter by reviewed</button>
+            <section>{Object.values(this.props.candidates).map(candidate => <CandidateDetail key={candidate.id} candidate={candidate} />)}</section>
+          </div>
+        )
+      }
     } else {
       return <div>loading</div>
     }
@@ -32,20 +52,3 @@ class CandidateIndex extends Component {
 }
 
 export default CandidateIndex;
-
-// const mapStateToProps = ( state ) => {
-//   return ({
-//     state
-//   });
-// };
-//
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     fetchCandidates: () => dispatch(fetchCandidates())
-//   };
-// };
-//
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(CandidateIndex);

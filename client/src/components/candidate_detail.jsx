@@ -8,14 +8,28 @@ class CandidateDetail extends Component {
   render() {
     const { candidate } = this.props;
     return (
-      <div>
-        <span>{candidate.name}</span>
-        <span>{candidate.years_exp}</span>
-        <span>{candidate.status}</span>
-        <span>{candidate.date_applied}</span>
-        <span>{candidate.reviewed}</span>
-        <span>{candidate.description}</span>
-      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>name</th>
+            <th>years of experience</th>
+            <th>status</th>
+            <th>date applied</th>
+            <th>reviewed</th>
+            <th>description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{candidate.name}</td>
+            <td>{candidate.years_exp}</td>
+            <td>{candidate.status}</td>
+            <td>{candidate.date_applied}</td>
+            <td>{candidate.reviewed ? 'yes' : 'no'}</td>
+            <td>{candidate.description}</td>
+          </tr>
+        </tbody>
+      </table>
     )
   }
 }

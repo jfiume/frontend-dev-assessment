@@ -1,21 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
-  fetchCandidates
+  fetchCandidates,
+  filterByReviewed
 } from '../actions/candidate_actions';
 import CandidateIndex from './candidate_index';
+import { filterReviewed } from '../reducers/selectors';
 
 
-const mapStateToProps = ( { candidates, loadingStatus } ) => {
+const mapStateToProps = ( { candidates, loadingStatus, filterByReviewedObj } ) => {
   return ({
     candidates,
-    loadingStatus
+    loadingStatus,
+    filterByReviewedObj,
+    reviewed: filterReviewed(candidates)
   });
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchCandidates: () => dispatch(fetchCandidates())
+    fetchCandidates: () => dispatch(fetchCandidates()),
+    filterByReviewed: () => dispatch(filterByReviewed())
   };
 };
 
