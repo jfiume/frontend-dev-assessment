@@ -1,9 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import {
-  fetchCandidates,
-  filterByReviewed
-} from '../actions/candidate_actions';
 import CandidateDetail from './candidate_detail_container';
 
 class CandidateIndex extends Component {

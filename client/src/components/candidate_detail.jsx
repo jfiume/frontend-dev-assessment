@@ -3,6 +3,19 @@ import React, { Component } from 'react';
 class CandidateDetail extends Component {
   constructor(props) {
     super(props);
+
+    this.updateStatus = this.updateStatus.bind(this);
+  }
+
+  updateStatus(id, e) {
+    const status = {status: e.target.value};
+    this.props.callUpdateStatus(id, status);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.candidates !== this.props.candidates) {
+      this.props.fetchCandidates();
+    }
   }
 
   render() {
@@ -17,6 +30,7 @@ class CandidateDetail extends Component {
             <th>date applied</th>
             <th>reviewed</th>
             <th>description</th>
+            <th>update</th>
           </tr>
         </thead>
         <tbody>
@@ -27,6 +41,11 @@ class CandidateDetail extends Component {
             <td>{candidate.date_applied}</td>
             <td>{candidate.reviewed ? 'yes' : 'no'}</td>
             <td>{candidate.description}</td>
+            <td><select onChange={(e) => this.updateStatus(candidate.id, e)}>
+              <option value=""></option>
+              <option value="accepted">Accepted</option>
+              <option value="rejected">Rejected</option>
+            </select></td>
           </tr>
         </tbody>
       </table>
