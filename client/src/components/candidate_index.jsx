@@ -7,10 +7,9 @@ class CandidateIndex extends Component {
 
     this.filterByReviewed = this.filterByReviewed.bind(this);
     this.sorted = this.sorted.bind(this);
-    this.renderFilter = this.renderFilter.bind(this);
-    this.renderAll = this.renderAll.bind(this);
-    this.renderSort = this.renderSort.bind(this);
     this.renderButtons = this.renderButtons.bind(this);
+    this.renderTable = this.renderTable.bind(this);
+    this.renderTableHead = this.renderTableHead.bind(this);
   }
 
   componentDidMount() {
@@ -37,44 +36,47 @@ class CandidateIndex extends Component {
     this.props.sorting();
   }
 
-  renderFilter(reviewed) {
-    return (
-      <section>{reviewed.map(candidate => <CandidateDetail key={candidate.id} candidate={candidate} />)}</section>
-    )
-  }
-
-  renderAll(candidates) {
-    return (
-      <section>{candidates.map(candidate => <CandidateDetail key={candidate.id} candidate={candidate} />)}</section>
-    )
-  }
-
-  renderSort(sortArr) {
-    return (
-      <section>{sortArr.map(candidate => <CandidateDetail key={candidate.id} candidate={candidate} />)}</section>
-    )
-  }
-
   renderButtons() {
     return (
-      <div>
+      <section>
         <button onClick={this.filterByReviewed}>filter by reviewed</button>
         <button onClick={this.sorted}>sort by status and date applied</button>
-      </div>
+      </section>
     )
   }
 
-  render() {
+  renderTableHead() {
+    return (
+      <tr>
+        <th>name</th>
+        <th>years of experience</th>
+        <th>status</th>
+        <th>date applied</th>
+        <th>reviewed</th>
+        <th>description</th>
+        <th>update</th>
+      </tr>
+    )
+  }
+
+  renderTable() {
     const { loading } = this.props.loadingStatus;
     if (!loading && Object.values(this.props.candidates).length > 0) {
-      const candidates = Object.values(this.props.candidates)
-      const reviewedObj = this.props.filterByReviewedObj.filterByReviewed
-      const reviewed = this.props.reviewed
+      const candidates = Object.values(this.props.candidates);
+      const reviewedObj = this.props.filterByReviewedObj.filterByReviewed;
+      const reviewed = this.props.reviewed;
       if (reviewedObj) {
         return (
           <div>
             <div>{this.renderButtons()}</div>
-            <div>{this.renderFilter(reviewed)}</div>
+            <table className="candidates">
+              <thead>
+                {this.renderTableHead()}
+              </thead>
+              <tbody>
+                {reviewed.map(candidate => <CandidateDetail key={candidate.id} candidate={candidate} />)}
+              </tbody>
+            </table>
           </div>
         );
       }
@@ -84,19 +86,39 @@ class CandidateIndex extends Component {
         return (
           <div>
             <div>{this.renderButtons()}</div>
-            <div>{this.renderSort(sortArr)}</div>
+            <table className="candidates">
+              <thead>
+                {this.renderTableHead()}
+              </thead>
+              <tbody>
+                {sortArr.map(candidate => <CandidateDetail key={candidate.id} candidate={candidate} />)}
+              </tbody>
+            </table>
           </div>
         );
       }
       return (
         <div>
           <div>{this.renderButtons()}</div>
-          <div>{this.renderAll(candidates)}</div>
+          <table className="candidates">
+            <thead>
+              {this.renderTableHead()}
+            </thead>
+            <tbody>
+              {candidates.map(candidate => <CandidateDetail key={candidate.id} candidate={candidate} />)}
+            </tbody>
+          </table>
         </div>
       );
     } else {
       return <div>loading</div>
     }
+  }
+
+  render() {
+    return (
+      <div>{this.renderTable()}</div>
+    )
   }
 }
 

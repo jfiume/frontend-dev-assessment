@@ -1,28 +1,30 @@
-.App {
-  text-align: center;
+.candidates {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.candidates td, .candidates th {
+    border: 1px solid #ddd;
+    padding: 8px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+.candidates tr:nth-child(even){background-color: #f2f2f2;}
+
+.candidates tr:hover {background-color: #ddd;}
+
+.candidates th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: black;
+    color: white;
+}
+
+button {
+  font-size: 1em;
+  margin: 5px;
+  border: 2px solid gold;
+  background-color: black;
   color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }
