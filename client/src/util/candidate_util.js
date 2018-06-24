@@ -1,3 +1,4 @@
+// Asynchronously fetch me all candidates
 export const fetchCandidates = async function() {
   try {
     const response = await fetch("/candidates/");
@@ -8,6 +9,7 @@ export const fetchCandidates = async function() {
   }
 }
 
+// Update a candidates' status with a PATCH request
 export const updateStatus = async function(id, status) {
   try {
     const settings = {

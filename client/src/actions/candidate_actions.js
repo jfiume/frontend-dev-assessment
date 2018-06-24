@@ -5,7 +5,6 @@ export const RECEIVE_CANDIDATE = 'RECEIVE_CANDIDATE';
 export const FILTER_BY_REVIEWED = 'FILTER_BY_REVIEWED';
 export const START_LOADING_ALL_CANDIDATES = 'START_LOADING_ALL_CANDIDATES';
 export const SORTED = 'SORTED';
-export const UPDATE_STATUS = 'UPDATE_STATUS';
 
 export const receiveCandidates = candidates => ({
   type: RECEIVE_CANDIDATES,
@@ -25,6 +24,10 @@ export const sorting = () => ({
   type: SORTED,
 });
 
+export const startLoadingAllCandidates = () => ({
+  type: START_LOADING_ALL_CANDIDATES
+});
+
 export const callUpdateStatus = (id, status) => dispatch => {
   return (
     CandidateUtil.updateStatus(id, status).then(candidate => (
@@ -34,6 +37,7 @@ export const callUpdateStatus = (id, status) => dispatch => {
 };
 
 export const fetchCandidates = () => dispatch => {
+  // Signal that we are starting our async call
   dispatch(startLoadingAllCandidates());
   return (
     CandidateUtil.fetchCandidates().then(candidates => (
@@ -41,7 +45,3 @@ export const fetchCandidates = () => dispatch => {
     ))
   )
 };
-
-export const startLoadingAllCandidates = () => ({
-  type: START_LOADING_ALL_CANDIDATES
-});

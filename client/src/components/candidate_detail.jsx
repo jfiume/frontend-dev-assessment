@@ -13,6 +13,7 @@ class CandidateDetail extends Component {
   }
 
   componentDidUpdate(prevProps) {
+    // After we update a candidates' status, we have to rerender and show the full candidates list
     if (prevProps.candidates !== this.props.candidates) {
       this.props.fetchCandidates();
     }
