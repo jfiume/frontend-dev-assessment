@@ -20,10 +20,11 @@
     text-align: left;
     background-color: black;
     color: white;
+    border-top: solid 2px red;
 }
 
 #date-applied {
-  padding: 10px 45px;
+  padding: 10px 50px;
 }
 
 button {
@@ -33,6 +34,7 @@ button {
   background-color: black;
   color: white;
   padding: 10px;
+  border: solid 2px red;
 }
 
 select {
@@ -48,6 +50,7 @@ select {
   -moz-appearance: none;
   appearance: none;
 
+  /* Position background arrow image */
   background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAh0lEQVQ4T93TMQrCUAzG8V9x8QziiYSuXdzFC7h4AcELOPQAdXYovZCHEATlgQV5GFTe1ozJlz/kS1IpjKqw3wQBVyy++JI0y1GTe7DCBbMAckeNIQKk/BanALBB+16LtnDELoMcsM/BESDlz2heDR3WePwKSLo5eoxz3z6NNcFD+vu3ij14Aqz/DxGbKB7CAAAAAElFTkSuQmCC');
   background-repeat: no-repeat;
   background-position: 75px center;
