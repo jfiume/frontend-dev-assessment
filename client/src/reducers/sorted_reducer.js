@@ -4,7 +4,7 @@ import {
 
 const initialState = {
   sorted: false
-}
+};
 
 const SortedReducer = (state = initialState, action) => {
   Object.freeze(state);
@@ -12,7 +12,7 @@ const SortedReducer = (state = initialState, action) => {
     case SORTED:
       return Object.assign({}, state, { sorted: !state.sorted });
     default:
-      return state
+      return state;
   }
 }
 

@@ -12,7 +12,7 @@ const CandidatesReducer = (state = {}, action) => {
       const candidateToUpdate = {[action.candidate.id]: action.candidate}
       return Object.assign({}, candidateToUpdate);
     default:
-      return state
+      return state;
   }
 }
 

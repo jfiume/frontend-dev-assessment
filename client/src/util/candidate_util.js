@@ -7,7 +7,7 @@ export const fetchCandidates = async function() {
   } catch (e) {
     console.error("API request raised an error:", e);
   }
-}
+};
 
 // Update a candidates' status with a PATCH request
 export const updateStatus = async function(id, status) {
@@ -26,4 +26,4 @@ export const updateStatus = async function(id, status) {
   } catch (e) {
     console.error("API request raised an error:", e);
   }
-}
+};

@@ -21,17 +21,18 @@ class CandidateDetail extends Component {
 
   render() {
     const { candidate } = this.props;
+    const dateApplied = new Date(candidate.date_applied);
     return (
       <tr>
         <td>{candidate.name}</td>
         <td>{candidate.years_exp}</td>
         <td>{candidate.status}</td>
-        <td>{candidate.date_applied}</td>
+        <td>{dateApplied.toDateString()}</td>
         <td>{candidate.reviewed ? 'yes' : 'no'}</td>
         <td>{candidate.description}</td>
         <td>
           <select onChange={(e) => this.updateStatus(candidate.id, e)}>
-            <option value=""></option>
+            <option value="">Status</option>
             <option value="accepted">Accepted</option>
             <option value="rejected">Rejected</option>
           </select>

@@ -51,13 +51,13 @@ class CandidateIndex extends Component {
     // I used a table to display the candidates data so that it is easy to read
     return (
       <tr>
-        <th>name</th>
-        <th>years of experience</th>
-        <th>status</th>
-        <th>date applied</th>
-        <th>reviewed</th>
-        <th>description</th>
-        <th>update</th>
+        <th>Name</th>
+        <th>Years of Experience</th>
+        <th>Status</th>
+        <th id="date-applied">Date Applied</th>
+        <th>Reviewed</th>
+        <th>Description</th>
+        <th>Update</th>
       </tr>
     )
   }

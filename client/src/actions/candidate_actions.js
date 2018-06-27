@@ -14,7 +14,7 @@ export const receiveCandidates = candidates => ({
 export const receiveCandidate = candidate => ({
   type: RECEIVE_CANDIDATE,
   candidate
-})
+});
 
 export const filterByReviewed = () => ({
   type: FILTER_BY_REVIEWED,
@@ -33,7 +33,7 @@ export const callUpdateStatus = (id, status) => dispatch => {
     CandidateUtil.updateStatus(id, status).then(candidate => (
       dispatch(receiveCandidate(candidate))
     ))
-  )
+  );
 };
 
 export const fetchCandidates = () => dispatch => {
@@ -43,5 +43,5 @@ export const fetchCandidates = () => dispatch => {
     CandidateUtil.fetchCandidates().then(candidates => (
       dispatch(receiveCandidates(candidates))
     ))
-  )
+  );
 };

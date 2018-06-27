@@ -4,7 +4,7 @@ import {
 
 const initialState = {
   filterByReviewed: false
-}
+};
 
 const ReviewedReducer = (state = initialState, action) => {
   Object.freeze(state);
@@ -12,7 +12,7 @@ const ReviewedReducer = (state = initialState, action) => {
     case FILTER_BY_REVIEWED:
       return Object.assign({}, state, { filterByReviewed: !state.filterByReviewed });
     default:
-      return state
+      return state;
   }
 }
 
