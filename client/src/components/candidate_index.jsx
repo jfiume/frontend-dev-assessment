@@ -85,7 +85,7 @@ class CandidateIndex extends Component {
           </div>
         );
       }
-      const sorted = this.props.sorted.sorted;
+      const sorted = this.props.sorted;
       const sortArr = this.props.sortArr;
       // What we render when we click 'sort by status and date applied' button
       if (sorted) {
@@ -97,7 +97,7 @@ class CandidateIndex extends Component {
                 {this.renderTableHead()}
               </thead>
               <tbody>
-                {sortArr.map(candidate => <CandidateDetail key={candidate.id} candidate={candidate} />)}
+                {/* {sortArr.map(candidate => <CandidateDetail key={candidate.id} candidate={candidate} />)} */}
               </tbody>
             </table>
           </div>

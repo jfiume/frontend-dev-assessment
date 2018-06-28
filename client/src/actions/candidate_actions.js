@@ -4,7 +4,6 @@ export const RECEIVE_CANDIDATES = 'RECEIVE_CANDIDATES';
 export const RECEIVE_CANDIDATE = 'RECEIVE_CANDIDATE';
 export const FILTER_BY_REVIEWED = 'FILTER_BY_REVIEWED';
 export const START_LOADING_ALL_CANDIDATES = 'START_LOADING_ALL_CANDIDATES';
-export const SORTED = 'SORTED';
 
 export const receiveCandidates = candidates => ({
   type: RECEIVE_CANDIDATES,
@@ -18,10 +17,6 @@ export const receiveCandidate = candidate => ({
 
 export const filterByReviewed = () => ({
   type: FILTER_BY_REVIEWED,
-});
-
-export const sorting = () => ({
-  type: SORTED,
 });
 
 export const startLoadingAllCandidates = () => ({

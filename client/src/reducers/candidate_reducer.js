@@ -14,6 +14,6 @@ const CandidatesReducer = (state = {}, action) => {
     default:
       return state;
   }
-}
+};
 
 export default CandidatesReducer;
