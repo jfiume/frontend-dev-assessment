@@ -6,10 +6,13 @@ class CandidateIndex extends Component {
     super(props);
 
     this.filterByReviewed = this.filterByReviewed.bind(this);
-    this.sorted = this.sorted.bind(this);
     this.renderButtons = this.renderButtons.bind(this);
     this.renderTable = this.renderTable.bind(this);
     this.renderTableHead = this.renderTableHead.bind(this);
+    this.sortedByStatusAsc = this.sortedByStatusAsc.bind(this);
+    this.sortedByStatusDec = this.sortedByStatusDec.bind(this);
+    this.sortedByDateAsc = this.sortedByDateAsc.bind(this);
+    this.sortedByDateDec = this.sortedByDateDec.bind(this);
   }
 
   componentDidMount() {
@@ -34,15 +37,30 @@ class CandidateIndex extends Component {
     this.props.filterByReviewed();
   }
 
-  sorted() {
-    this.props.sorting();
+  sortedByStatusAsc() {
+    this.props.sortByStatusAsc();
+  }
+
+  sortedByStatusDec() {
+    this.props.sortByStatusDec();
+  }
+
+  sortedByDateAsc() {
+    this.props.sortByDateAsc();
+  }
+
+  sortedByDateDec() {
+    this.props.sortByDateDec();
   }
 
   renderButtons() {
     return (
       <section>
         <button onClick={this.filterByReviewed}>filter by reviewed</button>
-        <button onClick={this.sorted}>sort by status and date applied</button>
+        <button onClick={this.sortedByStatusAsc}>sort by status ascending</button>
+        <button onClick={this.sortedByStatusDec}>sort by status decending</button>
+        <button onClick={this.sortedByDateAsc}>sort by date ascending</button>
+        <button onClick={this.sortedByDateDec}>sort by date decending</button>
       </section>
     )
   }
@@ -86,9 +104,26 @@ class CandidateIndex extends Component {
         );
       }
       const sorted = this.props.sorted;
-      const sortArr = this.props.sortArr;
-      // What we render when we click 'sort by status and date applied' button
-      if (sorted) {
+      let sortArr = [];
+      if (sorted.sortedByStatusAsc && sorted.sortedByDateAsc) {
+        sortArr = this.props.sortStatusAndDateAsc;
+      } else if (sorted.sortedByStatusAsc && sorted.sortedByDateDec) {
+        sortArr = this.props.sortStatusAscDateDec;
+      } else if (sorted.sortedByStatusDec && sorted.sortedByDateAsc) {
+        sortArr = this.props.sortStatusDecDateAsc;
+      } else if (sorted.sortedByStatusDec && sorted.sortedByDateDec) {
+        sortArr = this.props.sortStatusAndDateDec;
+      } else if (sorted.sortedByStatusAsc) {
+        sortArr = this.props.sortStatusAsc;
+      } else if (sorted.sortedByStatusDec) {
+        sortArr = this.props.sortStatusDec;
+      } else if (sorted.sortedByDateAsc) {
+        sortArr = this.props.sortDateAsc;
+      } else if (sorted.sortedByDateDec) {
+        sortArr = this.props.sortDateDec;
+      };
+      // What we render when we click
+      if (sorted.sortedByStatusAsc || sorted.sortedByStatusDec || sorted.sortedByDateAsc || sorted.sortedByDateDec) {
         return (
           <div>
             <div>{this.renderButtons()}</div>
@@ -97,7 +132,7 @@ class CandidateIndex extends Component {
                 {this.renderTableHead()}
               </thead>
               <tbody>
-                {/* {sortArr.map(candidate => <CandidateDetail key={candidate.id} candidate={candidate} />)} */}
+                {sortArr.map(candidate => <CandidateDetail key={candidate.id} candidate={candidate} />)}
               </tbody>
             </table>
           </div>

@@ -3,22 +3,18 @@ export const SORTBYSTATUSDEC = 'SORTBYSTATUSDEC';
 export const SORTBYDATEASC = 'SORTBYDATEASC';
 export const SORTBYDATEDEC = 'SORTBYDATEDEC';
 
-export const sortByStatusAsc = sortByStatusAsc => ({
-  type: SORTBYSTATUSASC,
-  sortByStatusAsc
+export const sortByStatusAsc = () => ({
+  type: SORTBYSTATUSASC
 });
 
-export const sortByStatusDec = sortByStatusDec => ({
-  type: SORTBYSTATUSDEC,
-  sortByStatusDec
+export const sortByStatusDec = () => ({
+  type: SORTBYSTATUSDEC
 });
 
-export const sortByDateAsc = sortByDateAsc => ({
-  type: SORTBYDATEASC,
-  sortByDateAsc
+export const sortByDateAsc = () => ({
+  type: SORTBYDATEASC
 });
 
-export const sortByDateDec = sortByDateDec => ({
-  type: SORTBYDATEDEC,
-  sortByDateDec
+export const sortByDateDec = () => ({
+  type: SORTBYDATEDEC
 });
