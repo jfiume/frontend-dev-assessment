@@ -2,6 +2,8 @@ export const SORTBYSTATUSASC = 'SORTBYSTATUSASC';
 export const SORTBYSTATUSDEC = 'SORTBYSTATUSDEC';
 export const SORTBYDATEASC = 'SORTBYDATEASC';
 export const SORTBYDATEDEC = 'SORTBYDATEDEC';
+export const RESETSTATUS = 'RESETSTATUS';
+export const RESETDATE = 'RESETDATE';
 
 export const sortByStatusAsc = () => ({
   type: SORTBYSTATUSASC
@@ -17,4 +19,12 @@ export const sortByDateAsc = () => ({
 
 export const sortByDateDec = () => ({
   type: SORTBYDATEDEC
+});
+
+export const resetStatus = () => ({
+  type: RESETSTATUS
+});
+
+export const resetDate = () => ({
+  type: RESETDATE
 });

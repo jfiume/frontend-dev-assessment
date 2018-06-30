@@ -7,7 +7,9 @@ import {
   sortByStatusAsc,
   sortByStatusDec,
   sortByDateAsc,
-  sortByDateDec
+  sortByDateDec,
+  resetStatus,
+  resetDate
 } from '../actions/sorting_actions';
 import CandidateIndex from './candidate_index';
 import {
@@ -49,6 +51,8 @@ const mapDispatchToProps = dispatch => {
     sortByStatusDec: () => dispatch(sortByStatusDec()),
     sortByDateAsc: () => dispatch(sortByDateAsc()),
     sortByDateDec: () => dispatch(sortByDateDec()),
+    resetStatus: () => dispatch(resetStatus()),
+    resetDate: () => dispatch(resetDate()),
   };
 };
 

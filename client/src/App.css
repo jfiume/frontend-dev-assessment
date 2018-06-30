@@ -12,6 +12,8 @@
 
 .candidates tr:nth-child(even){background-color: #f2f2f2;}
 
+.candidates tr:nth-child(odd){background-color: Ivory;}
+
 .candidates tr:hover {background-color: #ddd;}
 
 .candidates th {
@@ -20,7 +22,7 @@
     text-align: left;
     background-color: black;
     color: white;
-    border-top: solid 2px red;
+    border-top: solid 2px white;
 }
 
 #date-applied {
@@ -34,10 +36,10 @@ button {
   background-color: black;
   color: white;
   padding: 10px;
-  border: solid 2px red;
+  border: solid 2px white;
 }
 
-select {
+.status {
   height: 30px;
   width: 100px;
   border-radius: 0;
@@ -54,4 +56,32 @@ select {
   background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAh0lEQVQ4T93TMQrCUAzG8V9x8QziiYSuXdzFC7h4AcELOPQAdXYovZCHEATlgQV5GFTe1ozJlz/kS1IpjKqw3wQBVyy++JI0y1GTe7DCBbMAckeNIQKk/BanALBB+16LtnDELoMcsM/BESDlz2heDR3WePwKSLo5eoxz3z6NNcFD+vu3ij14Aqz/DxGbKB7CAAAAAElFTkSuQmCC');
   background-repeat: no-repeat;
   background-position: 75px center;
+}
+
+.sort {
+  font-size: 1em;
+  margin: 20px;
+  margin-bottom: 30px;
+  background-color: black;
+  color: white;
+  padding: 10px;
+  border: solid 2px white;
+  height: 42px;
+  width: 112px;
+  cursor: pointer;
+  padding-left: 10px;
+  border-radius: 0;
+}
+
+img {
+  height: 50px;
+  width: 370px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  margin: 10px;
+}
+
+body {
+  background-color: #63A8CB;
 }

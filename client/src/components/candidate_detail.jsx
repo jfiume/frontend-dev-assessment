@@ -31,7 +31,7 @@ class CandidateDetail extends Component {
         <td>{candidate.reviewed ? 'yes' : 'no'}</td>
         <td>{candidate.description}</td>
         <td>
-          <select onChange={(e) => this.updateStatus(candidate.id, e)}>
+          <select className="status" onChange={(e) => this.updateStatus(candidate.id, e)}>
             <option value="">Status</option>
             <option value="accepted">Accepted</option>
             <option value="rejected">Rejected</option>
