@@ -146,7 +146,7 @@ class CandidateIndex extends Component {
         sortArr = this.props.sortDateDec;
       };
       // What we render when we click the sorting buttons
-      if (sorted.sortedByStatusAsc || sorted.sortedByStatusDec || sorted.sortedByDateAsc || sorted.sortedByDateDec) {
+      if (sortArr.length > 0) {
         return (
           <div>
             <div>{this.renderButtons()}</div>
